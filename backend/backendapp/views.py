@@ -288,6 +288,25 @@ def DeletaDisciplina(request,disc):
         return_dict["sucesso"] = True
     return return_dict
 
+@acerta_tipo("DELETE")
+def DeletaUsuario(request,user):
+    return_dict = {"sucesso":False}
+    erros = []
+    try:
+        usuario = Usuario.objects.get(login=user)
+        usuario.delete()
+    
+    except Usuario.DoesNotExist:
+        erros.append("Não existe o usuário informado")  
+    
+    except Exception as ex:
+        erros.append(str(ex))
+
+    if erros:
+        return_dict["erros"] = erros
+    else:
+        return_dict["sucesso"] = True
+    return return_dict
 
 @acerta_tipo("DELETE")
 def DeletaAtividade(request,atividade_id):

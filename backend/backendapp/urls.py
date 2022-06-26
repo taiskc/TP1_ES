@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     path('login',views.Login,name='Login'),
     path('cadastro/usuario', views.CadastroUsuario, name='CadastroUsuario'),
+    path('remove/usuario/<str:user>', views.DeletaUsuario, name='DeletaUsuario'),
     path('cadastro/disciplina', views.CadastroDisciplina, name='CadastroDisciplina'),
     path('cadastro/atividade', views.CadastroAtividade, name='CadastroAtividade'),
     path('lista/disciplinas/<int:user>', views.ListaDisciplinas, name='ListaDisciplinas'),
@@ -17,5 +18,4 @@ urlpatterns = [
     path('remove/atividade/<int:atividade_id>', views.DeletaAtividade,name='DeletaAtividade'),
     path('cronograma/<int:user>', views.CronogramaAtividades,name='CronogramaAtividades'),
     path('lista/atividades/<int:id>',views.ListaAtividades,name='ListaAtividades'),
-
 ]

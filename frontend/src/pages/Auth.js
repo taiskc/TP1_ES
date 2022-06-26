@@ -65,7 +65,6 @@ const Auth = () => {
           })
             .then((res) => res.json())
             .then((res) => {
-              debugger;
               if (res["sucesso"]) {
                 if (signup) {
                   setSignup(false);
@@ -86,7 +85,6 @@ const Auth = () => {
               }
             })
             .catch((err) => {
-              debugger;
               console.log(err);
             });
         }}
