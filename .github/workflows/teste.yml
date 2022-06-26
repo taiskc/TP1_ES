@@ -25,10 +25,11 @@ jobs:
         run: |
           pytest
       - name: Codecov
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v2
         with:
           files: out.json, ../../frontend/.nyc_output/out.json
           fail_ci_if_error: false
+          version: "v0.1.15"
       - name: Upload coverage reports to Codecov
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
