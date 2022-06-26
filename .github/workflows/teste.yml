@@ -26,4 +26,6 @@ jobs:
           pytest
       - name: Codecov
         uses: codecov/codecov-action@v3.1.0
+        with:
+          file: ../../frontend/.nyc_output/out.json
 
