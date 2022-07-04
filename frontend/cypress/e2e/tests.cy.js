@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 describe('Register', () => {
     before(() => {
         cy.request('DELETE', 'http://127.0.0.1:8000/remove/usuario/test_user')
       })
     it('register new user successfully', () => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3001')
         cy.contains('Cadastrar').click()
         cy.get('input[name="login"]')
             .type('test_user')
@@ -22,7 +23,7 @@ describe('Register', () => {
         cy.contains('Email').should('not.exist')
         })
     it('fail to register repeated user', () => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3001')
         cy.contains('Cadastrar').click()
         cy.get('input[name="login"]')
             .type('test_user')
@@ -42,7 +43,7 @@ describe('Register', () => {
 })
 describe('Login', () => {
     it('login, logout and back to home', () => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3001')
         cy.get('input[name="login"]')
             .type('test_user')
             .get('input[name="senha"]')
@@ -56,7 +57,7 @@ describe('Login', () => {
 })
 describe('Discipline', () => {
     it('create and delete a discipline', () => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3001')
         cy.get('input[name="login"]')
             .type('test_user')
             .get('input[name="senha"]')
@@ -88,7 +89,7 @@ describe('Discipline', () => {
 })
 describe('Activity', () => {
     it('create an activity', () => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3001')
         cy.get('input[name="login"]')
             .type('test_user')
             .get('input[name="senha"]')
@@ -126,6 +127,5 @@ describe('Activity', () => {
         .type('Testes')
         .should('have.value','Testes')
         cy.get('[type^=submit]').click()
-
     })
 })
